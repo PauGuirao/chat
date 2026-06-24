@@ -1,5 +1,17 @@
 # @chat-adapter/telegram
 
+## 4.31.1
+
+### Patch Changes
+
+- 937cac9: fix(telegram): stop `trimToMarkdownV2SafeBoundary` from truncating valid messages at entity-marker characters (`_`, `*`, `~`) inside link URLs. Per the MarkdownV2 spec, only `)` and `\` are special inside the `(...)` part of an inline link, so URLs with raw underscores in query parameters (e.g. `?a_b=1&c_d=2&e_f=3`) are now left intact instead of being sliced mid-URL and degraded to plain text. Hard truncation that cuts inside a link URL now trims back to before the link's `[`.
+- Updated dependencies [438f551]
+- Updated dependencies [d034b8b]
+- Updated dependencies [06af3e1]
+- Updated dependencies [efa9610]
+  - chat@4.31.1
+  - @chat-adapter/shared@4.31.1
+
 ## 4.31.0
 
 ### Minor Changes
